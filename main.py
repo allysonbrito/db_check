@@ -1,12 +1,8 @@
 import os
 
+import oracledb
 import uvicorn
 from fastapi import FastAPI
-from core.config import settings
-
-import oracledb
-import json
-import oracledb
 
 app = FastAPI()
 @app.get('/')
