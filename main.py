@@ -1,11 +1,16 @@
 import os
 
+import uvicorn
 from fastapi import FastAPI
 import oracledb
 import json
 import oracledb
 
 app = FastAPI()
+@app.get('/')
+def index():
+    return {'data': 'Hello FastAPI!'}
+
 
 @app.get("/db/{db_name}")
 async def check_db(db_name:str):
@@ -33,3 +38,6 @@ async def check_db(db_name:str):
 
   except:
     return {"db_status : 0"}
+
+if __name__ == "__main__":
+    uvicorn.run(app, host='0.0.0.0', port=8080)
