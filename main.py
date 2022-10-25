@@ -12,7 +12,7 @@ def index():
 
 @app.get("/db/{db_name}")
 async def check_db(db_name:str):
-  print (db_name)
+# print (db_name)
   global us, pw, sql
   sql = "select * from dual"
   us=""
@@ -23,8 +23,8 @@ async def check_db(db_name:str):
   elif db_name == 'trt':
       us = os.environ['TRT_USER']
       pw = os.environ['TRT_PASS']
-  print ('us:' + us)
-  print ('pw:' + pw)
+#  print ('us:' + us)
+#  print ('pw:' + pw)
   try:
     with oracledb.connect(user=us, password=pw, dsn=os.environ['DSN']) as connection:
       with connection.cursor() as cursor:
