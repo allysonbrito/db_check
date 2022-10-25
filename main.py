@@ -2,6 +2,8 @@ import os
 
 import uvicorn
 from fastapi import FastAPI
+from core.config import settings
+
 import oracledb
 import json
 import oracledb
